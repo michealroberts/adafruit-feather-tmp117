@@ -22,3 +22,13 @@ type Device struct {
 }
 
 /**************************************************************************************/
+
+// NewDevice creates a new Device instance with the specified I2C address and bus.
+func NewDevice(address uint16, bus machine.I2C) *Device {
+	return &Device{
+		address: address,
+		bus:     bus,
+	}
+}
+
+/**************************************************************************************/
