@@ -18,6 +18,13 @@ It provides a minimal firmware example showing how to configure I²C, read raw s
 
 - TinyGo (https://tinygo.org/)
 
+
+## Adafruit Documentation
+
+- [Overview](https://learn.adafruit.com/adafruit-tmp117-high-accuracy-i2c-temperature-monitor/overview)
+- [Pinouts](https://learn.adafruit.com/adafruit-tmp117-high-accuracy-i2c-temperature-monitor/pinouts)
+- [Downloads](https://learn.adafruit.com/adafruit-tmp117-high-accuracy-i2c-temperature-monitor/downloads)
+
 ## Licensing
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
