@@ -19,10 +19,11 @@ const DefaultTMP117I2CAddress uint16 = 0x48
 
 /**************************************************************************************/
 
-// NewDevice creates a new Device instance with the specified I2C address and bus.
-func NewDevice(address uint16, bus machine.I2C) *Device {
+// NewTMP117Device creates a new Device instance for TMP117 sensor using the default I2C
+// address and the specified bus.
+func NewTMP117Device(bus machine.I2C) *Device {
 	return &Device{
-		address: address,
+		address: DefaultTMP117I2CAddress,
 		bus:     bus,
 	}
 }
