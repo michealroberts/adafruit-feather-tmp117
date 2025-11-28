@@ -1,29 +1,29 @@
-# adafruit-feather-tmp117
+# adafruit-feather
 
-Ultra-accurate temperature sensing with the TMP117 on the Adafruit RP2040 Feather
+Sensor data collection suite using Adafruit sensors on the Adafruit RP2040 Feather
 
 ## Description
 
-This project demonstrates how to read high-accuracy temperature data from the Adafruit TMP117 digital sensor using TinyGo on an Adafruit Feather RP2040. 
+This project provides a comprehensive suite for collecting sensor data using various Adafruit sensors on the Adafruit RP2040 Feather platform.
 
-It provides a minimal firmware example showing how to configure I²C, read raw sensor values, and convert them to Kelvin using Go.
+It provides firmware examples and libraries for interfacing with multiple sensors, including temperature, light, and environmental sensors.
+
+It also is a test in-situ for a new protocol implementation.
 
 ## Hardware Required
 
 - Adafruit Feather RP2040
-- Adafruit TMP117 ±0.1°C High Accuracy I2C Temperature Sensor
 - STEMMA QT cable
+
+## Hardware Sensors
+
+- Adafruit TMP117 ±0.1°C High Accuracy I2C Temperature Sensor
+- Adafruit AS7341 10-Channel Light / Color Sensor
+- Adafruit BME688 Temperature, Humidity, Pressure & Gas Sensor
 
 ## Software Required
 
 - TinyGo (https://tinygo.org/)
-
-
-## Adafruit Documentation
-
-- [Overview](https://learn.adafruit.com/adafruit-tmp117-high-accuracy-i2c-temperature-monitor/overview)
-- [Pinouts](https://learn.adafruit.com/adafruit-tmp117-high-accuracy-i2c-temperature-monitor/pinouts)
-- [Downloads](https://learn.adafruit.com/adafruit-tmp117-high-accuracy-i2c-temperature-monitor/downloads)
 
 ## Licensing
 
