@@ -5,7 +5,7 @@
 
 /**************************************************************************************/
 
-package adafruit
+package device
 
 /**************************************************************************************/
 
@@ -15,10 +15,10 @@ import (
 
 /**************************************************************************************/
 
-// Device represents an Adafruit device connected over I2C.
+// Device represents a generic device connected over I2C.
 type Device struct {
-	address uint16      // I2C address of the sensor
-	bus     machine.I2C // I2C bus to which the sensor is connected
+	Address uint16      // I2C address of the sensor
+	Bus     machine.I2C // I2C bus to which the sensor is connected
 }
 
 /**************************************************************************************/
