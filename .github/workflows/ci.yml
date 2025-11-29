@@ -1,0 +1,69 @@
+name: adafruit-feather/ci
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - "v*.*.*" # e.g., v1.0.0
+    paths:
+      - '**/*.go'
+      - 'go.mod'
+      - 'go.sum'
+      - 'Makefile'
+      - '.github/workflows/**'
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Cancel jobs in progress if a new one is triggered (if not on main branch)
+concurrency:
+  group: ${{ github.ref }}-ci
+  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
+
+jobs:
+  ci:
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        go: ["1.25.x"]
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: Checkout 🛎
+        uses: actions/checkout@v6
+
+      # Setup our base Go environment 🧬
+      - name: Setup Go Environment
+        uses: actions/setup-go@v6
+        with:
+          go-version: ${{ matrix.go }}
+
+      # Install Go Staticcheck
+      - name: Install Go Staticcheck
+        run: go install honnef.co/go/tools/cmd/staticcheck@latest
+
+      # Install Go Critic
+      - name: Install Go Critic
+        run: go install -v github.com/go-critic/go-critic/cmd/gocritic@latest
+
+      # Run Go Test
+      - name: Go Format
+        run: make format
+
+      # Run Go Vet
+      - name: Go Vet
+        run: make vet
+
+      # Run Go Lint
+      - name: Go Lint
+        run: make lint
+
+      # Run Go Critic
+      - name: Go Critic
+        run: make critic
+
+      # Run Go Test
+      - name: Go Test 🧪
+        run: make test

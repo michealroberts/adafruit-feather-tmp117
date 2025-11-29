@@ -1,3 +1,6 @@
+//go:build tinygo
+// +build tinygo
+
 /**************************************************************************************/
 
 //	@author		Michael Roberts <michael@observerly.com>
