@@ -1,0 +1,48 @@
+name: adafruit-feather/test
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - '**/*.go'
+      - 'go.mod'
+      - 'go.sum'
+      - 'Makefile'
+      - '.github/workflows/**'
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Cancel jobs in progress if a new one is triggered (if not on main branch)
+concurrency:
+  group: ${{ github.ref }}-test
+  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
+
+jobs:
+  test:
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        go: ["1.25.x"]
+        tinygo: ['0.39.0']
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: Checkout 🛎
+        uses: actions/checkout@v6
+
+      # Setup our base Go environment 🧬
+      - name: Setup Go Environment
+        uses: actions/setup-go@v6
+        with:
+          go-version: ${{ matrix.go }}
+
+      - uses: acifani/setup-tinygo@v2
+        with:
+          tinygo-version: ${{ matrix.tinygo }}
+
+      # Run TinyGo Test
+      - name: Tiny Go Test 🧪
+        run: make test

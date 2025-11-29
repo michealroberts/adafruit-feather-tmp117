@@ -8,7 +8,7 @@
 # Test the application
 test:
 	@echo "Testing..."
-	@tinygo test ./... -v
+	@tinygo test -v ./... 
 
 #/*************************************************************************************/
 
