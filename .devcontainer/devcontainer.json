@@ -1,5 +1,5 @@
 {
-  "name": "adafruit-feather-tmp117",
+  "name": "adafruit-feather",
   "build": {
     "dockerfile": "../Dockerfile",
     "context": "..",
