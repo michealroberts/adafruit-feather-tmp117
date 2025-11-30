@@ -61,3 +61,15 @@ type Command struct {
 }
 
 /**************************************************************************************/
+
+// Frame represents a complete protocol frame including header, command, and payload:
+type Frame struct {
+	// Header contains the metadata for the frame:
+	Header
+	// Command represents the command details within the frame:
+	Command
+	// Payload contains the data associated with the frame (optional; variable length):
+	Payload []byte
+}
+
+/**************************************************************************************/
