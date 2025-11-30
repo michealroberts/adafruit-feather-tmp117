@@ -163,3 +163,35 @@ func TestSetResponseFlag(t *testing.T) {
 }
 
 /**************************************************************************************/
+
+func TestFrameIsError(t *testing.T) {
+	t.Run("IsError", func(t *testing.T) {
+		frame := Frame{
+			Header: Header{
+				Flags: FlagIsError,
+			},
+		}
+
+		want := true
+
+		if frame.IsError() != want {
+			t.Fatalf("IsError = false, want true")
+		}
+	})
+
+	t.Run("IsNotError", func(t *testing.T) {
+		frame := Frame{
+			Header: Header{
+				Flags: 0,
+			},
+		}
+
+		want := false
+
+		if frame.IsError() != want {
+			t.Fatalf("IsError = true, want false")
+		}
+	})
+}
+
+/**************************************************************************************/
