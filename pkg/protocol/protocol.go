@@ -121,3 +121,10 @@ func (f *Frame) SetResponse() {
 }
 
 /**************************************************************************************/
+
+// IsError returns true if the frame's FlagIsError bit is set.
+func (f Frame) IsError() bool {
+	return (f.Flags & FlagIsError) != 0
+}
+
+/**************************************************************************************/
